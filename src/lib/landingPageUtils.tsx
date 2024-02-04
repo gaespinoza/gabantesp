@@ -80,17 +80,17 @@ export function Experience() {
 
     return (
         <div>
-            <div className="w-full">
-                <div className="flex justify-center p-4 bg-slate-500">
+            <div >
+                <div className="flex justify-center p-4">
                     <Dropdown>
-                        <DropdownTrigger className="bg-slate-500">
+                        <DropdownTrigger>
                             <Button variant="bordered">
                                 {name}
                             </Button>
                         </DropdownTrigger>
                         <div className="bg-slate-500">
                             <DropdownMenu variant="faded" color="primary">
-                                <DropdownItem className="bg-slate-500" key="language" onClick={() => {
+                                <DropdownItem key="language" onClick={() => {
                                     setList(LanguagesList);
                                     setName("Languauges");
                                 }} >Languagues</DropdownItem>
@@ -108,20 +108,20 @@ export function Experience() {
                         
                     </Dropdown>
                 </div>
-                <div className="">
-                    {list.map((element, idx) => {
-                        return (
-                            <div key={idx}>
-                                <ExperienceElement
-                                    icon={element.icon} 
-                                    content={element.content} 
-                                    name={element.name} 
-                                    key={element.name}
-                                    proficiency={element.proficiency}
-                                />
-                            </div>
-                        )
-                    })}
+                <div className="grid grid-cols-2 gap-1">
+                    {list.map((element, idx) => 
+                        
+                        <div key={idx}>
+                            <ExperienceElement
+                                icon={element.icon} 
+                                content={element.content} 
+                                name={element.name} 
+                                key={element.name}
+                                proficiency={element.proficiency}
+                            />
+                        </div>
+                        
+                    )}
                 </div>
                 </div>
         </div>
