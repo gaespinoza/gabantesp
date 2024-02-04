@@ -1,5 +1,4 @@
 import NextAuth from "next-auth/next";
-import { NextApiHandler } from "next";
 import { options } from "@/lib/auth";
 
 

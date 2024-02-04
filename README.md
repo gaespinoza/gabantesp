@@ -1,4 +1,4 @@
-gabantesp home uring nexjs, and prisma for db management deployed on vercel
+gabantesp home using nexjs, and prisma for db management deployed on vercel
 
 helpful commands:
 - After locally updating schema file, update db on vercel:

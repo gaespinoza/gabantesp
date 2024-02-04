@@ -1,13 +1,12 @@
 'use client';
 
-import React, { ReactNode, useEffect, useRef, useState } from 'react';
+import React, { ReactNode, useEffect, useRef, useState, MutableRefObject} from 'react';
 
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
-
 import { SideNavItem } from '@/types/SideNavItem';
 import { Icon } from '@iconify/react';
-import { motion, useCycle } from 'framer-motion';
+import { Cycle, Variants, motion, useCycle } from 'framer-motion';
 import { Session } from 'next-auth';
 import { sideItems } from '@/lib/sideItems';
 
@@ -40,7 +39,7 @@ type HeaderMobileProps = {
 }
 
 const HeaderMobile = ({session}: HeaderMobileProps) => {
-    const pathname = usePathname();
+    const pathname: string|null = usePathname();
     const containerRef = useRef(null);
     const { height } = useDimensions(containerRef);
     const [isOpen, toggleOpen] = useCycle(false, true);
@@ -57,7 +56,7 @@ const HeaderMobile = ({session}: HeaderMobileProps) => {
             setQueryItems(false);
         }
         
-    }, [setItems, queryItems, setQueryItems])
+    }, [setItems, session, queryItems, setQueryItems])
 
   return (
     <motion.nav
@@ -112,9 +111,9 @@ const HeaderMobile = ({session}: HeaderMobileProps) => {
 
 export default HeaderMobile;
 
-const MenuToggle = ({ toggle }: { toggle: any }) => (
+const MenuToggle = ({ toggle }: { toggle: Cycle }) => (
   <button
-    onClick={toggle}
+    onClick={() => toggle}
     className="pointer-events-auto absolute right-4 top-[14px] z-30"
   >
     <svg width="23" height="23" viewBox="0 0 23 23">
@@ -142,7 +141,19 @@ const MenuToggle = ({ toggle }: { toggle: any }) => (
   </button>
 );
 
-const Path = (props: any) => (
+interface dProps {
+  d?: string,
+  opacity?: number
+  duration?: number
+}
+
+interface PathProps {
+  d?: string,
+  variants: Variants,
+  transition?: dProps
+}
+
+const Path = (props: PathProps) => (
   <motion.path
     fill="transparent"
     strokeWidth="2"
@@ -244,7 +255,7 @@ const variants = {
   },
 };
 
-const useDimensions = (ref: any) => {
+const useDimensions = (ref: MutableRefObject<HTMLElement|null>) => {
   const dimensions = useRef({ width: 0, height: 0 });
 
   useEffect(() => {

@@ -23,8 +23,6 @@ export default function PopOutImage({src, alt}: PopOutImageProps) {
     <Image
         src={src} 
         alt={alt}
-        // objectFit="contain"
-        // layout="fill"
         width={800}
         height={800}
         style={{

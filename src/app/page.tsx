@@ -1,9 +1,6 @@
 'use client';
-import { SocialList, Introduction, Experience, About, Contact } from '@/lib/landingPageUtils';
-import { cn } from '@/lib/utils';
-import { Icon } from '@iconify/react';
+import { Introduction, Experience, About, Contact } from '@/lib/landingPageUtils';
 import { Divider } from '@nextui-org/divider';
-import Link from 'next/link';
 
 
 export default function Home() {
