@@ -23,7 +23,7 @@ export default function ExperienceElement({icon, content, name, proficiency}: Ex
         </Button>
     }
     return (
-        <div className="p-2 float-left">
+        <div>
             {element}
             <Modal isOpen={isOpen} onOpenChange={onOpenChange} placement="center">
                 <ModalContent>

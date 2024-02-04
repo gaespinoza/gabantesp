@@ -3,7 +3,8 @@ import { PrismaAdapter } from "@next-auth/prisma-adapter";
 import GoogleProvider from "next-auth/providers/google";
 import prisma from '../lib/prisma';
 import { getServerSession } from "next-auth"
-import { User } from "@prisma/client";
+// import { User } from "@prisma/client";
+import { User } from "next-auth";
 
 export const options: CustAuthOptions = {
     providers: [
@@ -14,7 +15,7 @@ export const options: CustAuthOptions = {
     ],
     adapter: PrismaAdapter(prisma),
     secret: process.env.SECRET,
-    callbacks: { async redirect({ url, baseUrl }: {url:string, baseUrl:string}) { return baseUrl }, 
+    callbacks: { async redirect({ baseUrl }: {url?:string, baseUrl:string}) { return baseUrl }, 
                 async session({session, user}: {session: Session, user: User}) { 
                     session.user.role = user.role
                     return session;

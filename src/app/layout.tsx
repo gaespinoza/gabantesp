@@ -1,14 +1,12 @@
-import '../styles/globals.css';
+import '@/styles/globals.css';
 import type { Metadata } from 'next';
-import { Gabarito as font } from 'next/font/google';
+import { Tangerine as font } from 'next/font/google';
 import Header from '@/components/layout/Header';
 import HeaderMobile from '@/components/layout/HeaderMobile';
 import { auth } from '@/lib/auth';
 import MarginWidthWrapper from '@/components/layout/MarginWidthWrapper';
 import PageWrapper from '@/components/layout/PageWrapper';
 import SideNav from '@/components/layout/SideNav';
-import  CssBaseline  from "@nextui-org/react";
-import Document, { Html, Head, Main, NextScript } from "next/document";
 import { NextUiProvider } from './providers';
 
 const inter = font({

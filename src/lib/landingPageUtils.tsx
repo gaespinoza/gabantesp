@@ -7,7 +7,6 @@ import ExperienceElement, { ExperienceElementProps, LanguagesList, FrameworksLis
 import { Dropdown, DropdownItem, DropdownMenu, DropdownTrigger } from "@nextui-org/dropdown";
 import { Button } from "@nextui-org/button";
 import { Divider } from '@nextui-org/divider';
-import ResumeModal from "@/components/landingPage/ResumeModal";
 
 
 
@@ -15,7 +14,7 @@ export function Contact() {
     return (
         <>
             <div className="flex justify-center items-center">
-                <p className="p-5">Let's connect!</p>
+                <p className="p-5">Let&apos;s connect!</p>
             </div>
             <SocialList/>
             <div>
@@ -41,11 +40,11 @@ export function About() {
                     <p className="text-center text-pretty">
                         Originally from Virginia, I now live in Fremont, Seattle, where I commute on my bike, run aroung Green Lake, explore trails by the water and the woods,
                         and enjoy life. I am a software engineer by profession and a creative by passion. I like staying on top of my projects, and getting ahead when I can.
-                        When I'm not in downtown Seattle working, you can catch me watching LOTR, discovering a new trail, working on a side project or looking for bigfoot.  
+                        When I&apos;m not in downtown Seattle working, you can catch me watching LOTR, discovering a new trail, working on a side project or looking for bigfoot.  
                     </p>
                     <br/>
                     <p className="text-center text-pretty">
-                        I enjoy learning about photography and expanding my technique in taking photos and capturing beautiful moments. I'm also a super amateur bicyclist, I don't know much
+                        I enjoy learning about photography and expanding my technique in taking photos and capturing beautiful moments. I&apos;m also a super amateur bicyclist, I don&apos;t know much
                         about the vernacular or culture but have a super fun time biking to work and using my bike as my medium of exploration in the area I live. I like talking about issues and histories,
                         I am a friend and ally to all people, and I would love to work together with anyone who may have the same vision for a more positive future for all people.
                     </p>
@@ -63,8 +62,8 @@ export function About() {
                 </>
                 :
                 
-                <div className="flex justify-center items-center"> 
-                    <Button onClick={() => setActive(!active)} className="p-10"> About Me </Button>
+                <div className="flex justify-center items-center p-5"> 
+                    <Button onClick={() => setActive(!active)} > About Me </Button>
                 </div>
                 
             }
@@ -80,17 +79,17 @@ export function Experience() {
 
     return (
         <div>
-            <div className="w-full">
-                <div className="flex justify-center p-4 bg-slate-500">
+            <div >
+                <div className="flex justify-center p-4">
                     <Dropdown>
-                        <DropdownTrigger className="bg-slate-500">
+                        <DropdownTrigger>
                             <Button variant="bordered">
                                 {name}
                             </Button>
                         </DropdownTrigger>
                         <div className="bg-slate-500">
                             <DropdownMenu variant="faded" color="primary">
-                                <DropdownItem className="bg-slate-500" key="language" onClick={() => {
+                                <DropdownItem key="language" onClick={() => {
                                     setList(LanguagesList);
                                     setName("Languauges");
                                 }} >Languagues</DropdownItem>
@@ -108,20 +107,20 @@ export function Experience() {
                         
                     </Dropdown>
                 </div>
-                <div className="">
-                    {list.map((element, idx) => {
-                        return (
-                            <div key={idx}>
-                                <ExperienceElement
-                                    icon={element.icon} 
-                                    content={element.content} 
-                                    name={element.name} 
-                                    key={element.name}
-                                    proficiency={element.proficiency}
-                                />
-                            </div>
-                        )
-                    })}
+                <div className="grid grid-cols-2 gap-1">
+                    {list.map((element, idx) => 
+                        
+                        <div key={idx}>
+                            <ExperienceElement
+                                icon={element.icon} 
+                                content={element.content} 
+                                name={element.name} 
+                                key={element.name}
+                                proficiency={element.proficiency}
+                            />
+                        </div>
+                        
+                    )}
                 </div>
                 </div>
         </div>
@@ -130,21 +129,21 @@ export function Experience() {
 
 export function Introduction() {
 
-    const textToDisplay: string[] = [
-        "taking some pictures",
-        "out biking",
-        "a software engineer @ JPMC",
-        "a friend",
-        "happy to be here",
-        "a backend engineer",
-        "a motivated learner",
-        "a cloud engineer",
-        "from Virginia"
-    ]
     const [textIndex, setTextIndex] = useState<number>(0);
     const [displayedText, setDisplayedText] = useState<string>("");
 
     useEffect(() => {
+        const textToDisplay: string[] = [
+            "taking some pictures",
+            "out biking",
+            "a software engineer @ JPMC",
+            "a friend",
+            "happy to be here",
+            "a backend engineer",
+            "a motivated learner",
+            "a cloud engineer",
+            "from Virginia"
+        ]
         const intervalId = setInterval(() => {  //assign interval to a variable to clear it.
             setTextIndex((textIndex+1)%9);
             setDisplayedText(textToDisplay[textIndex]);
@@ -171,7 +170,7 @@ export function Introduction() {
             <div className="w-full flex justify-center">
                 <p className="text-center">
                     My name is Gabriel, and I live in Seattle.<br />
-                    I'm <span>{displayedText}</span>
+                    I&apos;m <span>{displayedText}</span>
                 </p>
             </div>
             

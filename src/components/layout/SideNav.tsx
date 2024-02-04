@@ -1,13 +1,10 @@
 'use client';
-import React, { SetStateAction, useEffect, useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
-import { getServerSession } from "next-auth/next"
-// import { options } from "../app/api/auth/[...nextauth]/route"
 import { SideNavItem } from '../../types/SideNavItem';
 import { sideItems } from '../../lib/sideItems';
 import { Session } from 'next-auth';
-import { cn } from '@/lib/utils';
 import { Head } from './Head';
 
 type SideNavProps = {
@@ -28,7 +25,7 @@ const SideNav = ({session}: SideNavProps) => {
             setQueryItems(false);
         }
         
-    }, [setItems, queryItems, setQueryItems])
+    }, [setItems, session, queryItems, setQueryItems])
     
 
     return (
