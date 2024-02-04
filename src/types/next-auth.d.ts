@@ -13,7 +13,7 @@ declare module "next-auth" {
       role: string
     }
   }
-  interface CustAuthOptions extends AuthOptions {
+  interface CustAuthOptions extends NextAuthOptions {
     providers,
     adapter,
     secret,

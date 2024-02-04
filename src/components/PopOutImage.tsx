@@ -25,8 +25,8 @@ export default function PopOutImage({src, alt}: PopOutImageProps) {
         alt={alt}
         // objectFit="contain"
         // layout="fill"
-        width={500}
-        height={500}
+        width={800}
+        height={800}
         style={{
             objectFit: "contain",
             fill: 'true',

@@ -1,6 +1,6 @@
 import '../styles/globals.css';
 import type { Metadata } from 'next';
-import { Gabarito as font } from 'next/font/google';
+import { Tangerine as font } from 'next/font/google';
 import Header from '@/components/layout/Header';
 import HeaderMobile from '@/components/layout/HeaderMobile';
 import { auth } from '@/lib/auth';
