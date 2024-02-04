@@ -1,6 +1,6 @@
 'use client';
 
-import React, { ReactNode, useEffect, useRef, useState, MutableRefObject} from 'react';
+import React, { ReactNode, useEffect, useRef, useState } from 'react';
 
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
@@ -111,9 +111,9 @@ const HeaderMobile = ({session}: HeaderMobileProps) => {
 
 export default HeaderMobile;
 
-const MenuToggle = ({ toggle }: { toggle: Cycle }) => (
+const MenuToggle = ({ toggle }: { toggle: Cycle}) => (
   <button
-    onClick={() => toggle}
+    onClick={() => {toggle()}}
     className="pointer-events-auto absolute right-4 top-[14px] z-30"
   >
     <svg width="23" height="23" viewBox="0 0 23 23">
@@ -255,7 +255,7 @@ const variants = {
   },
 };
 
-const useDimensions = (ref: MutableRefObject<HTMLElement|null>) => {
+const useDimensions = (ref: React.MutableRefObject<HTMLElement|null>) => {
   const dimensions = useRef({ width: 0, height: 0 });
 
   useEffect(() => {
